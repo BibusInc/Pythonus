@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "pythonus"
+version = "0.1.0"
+description = "beep boop"
+authors = ["Your Name <you@example.com>"]
+license = "none"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+python-dotenv = "^0.19.1"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
