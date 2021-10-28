@@ -10,7 +10,17 @@ def get_square(square):
 #Берем значения из .env
 config = dotenv_values('.env')
 string_square = config['square']
-square = int(string_square)
+
+
+#Исключения 
+try:
+    square = int(string_square)
+
+except ValueError:
+    raise ValueError(f'Не могу превратить значение {string_square} в число')
+
+if square <= 0:
+    raise ValueError('Сторона квадрата должна быть больше нуля')
 
 
 #Получаем итоговую переменную и выводим
