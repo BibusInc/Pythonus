@@ -3,30 +3,35 @@ from random import randint
 import math
 
 
-#функция(делаем фразу круче)
+#Получаем клёвые слова
+def coolword(words):
+    words = ['ну','короче','блин']
+    random_value1 = randint(0,2)
+    return(words[random_value1]) 
+
+
+#Делаем фразу круче
 def nooblin(phrase,chance):
 
-    random_value = randint(1,3) 
+
+    phrase = phrase.split(' ')  
+    length = len(phrase)       
+    length_float  = length/10
 
 
-    #выбираем клёвое слово
-    if random_value == 1:
-        word = ' ну '
-    if random_value == 2:
-        word = ' блин '
-    if random_value == 3:
-        word = ' короче '   
-         
-    phrase = phrase.split(' ') # разделяем строку
+    while (chance<length_float):
+        word = coolword(words)      
+        random_value2 = randint(1,length) 
+        phrase.insert(random_value2, word)
+        chance+=0.1
 
-    return word.join(phrase) # сшиваем строку с приколами
+    return phrase
    
-      
-
 #Берем значения из .env
 config = dotenv_values('.env')
 string_chance = config['chance']
 phrase = config['phrase']
+words = config['words']
 chance = float(string_chance)
 
 
