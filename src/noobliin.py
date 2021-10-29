@@ -3,7 +3,7 @@ from random import randint
 import math
 
 
-#Получаем клёвые слова
+#Получаем случайные клёвые слова
 def coolword(words):
     words = ['ну','короче','блин']
     random_value1 = randint(0,2)
@@ -13,20 +13,18 @@ def coolword(words):
 #Делаем фразу круче
 def nooblin(phrase,chance):
 
-
     phrase = phrase.split(' ')  
     length = len(phrase)       
-    length_float  = length/10
 
-
-    while (chance<length_float):
+    for i in range (int(chance*10)):
         word = coolword(words)      
         random_value2 = randint(1,length) 
         phrase.insert(random_value2, word)
-        chance+=0.1
+        i+=1
 
-    return phrase
+    return ' '.join(phrase)
    
+
 #Берем значения из .env
 config = dotenv_values('.env')
 string_chance = config['chance']
